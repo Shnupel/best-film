@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import HeadElement from "../component/head"
+import HeadElement from "../components/Head"
 
 export default function Document(): JSX.Element {
   return(
@@ -14,4 +14,3 @@ export default function Document(): JSX.Element {
     </Html>
   )
 }
-
