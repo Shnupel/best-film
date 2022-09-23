@@ -1,0 +1,18 @@
+.body{
+  display: flex;
+  align-items: flex-start;
+  .center{
+    margin-right: 30px;
+    width: 74%;
+    .text{
+      font-family: Roboto;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 23px;
+      letter-spacing: 0px;
+      text-align: left;
+      color: rgba(255, 255, 255, 1);
+      margin-bottom: 80px;
+    }
+  }
+}

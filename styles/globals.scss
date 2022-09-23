@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-@import "./ImportedStyles/variables";
+@import "ImportedStyles/variables";
 
 .wrapper{
   background-image: url("../public/images/img/background.png");

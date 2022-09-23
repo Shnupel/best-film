@@ -1,0 +1,21 @@
+.carts{
+  margin-bottom: 60px;
+  .title{
+    border-bottom: 1px solid rgba(129, 190, 203, 1);
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 47px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    padding-bottom: 30px;
+  }
+  .cartCarousel{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-bottom: 60px;
+  }
+}

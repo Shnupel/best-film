@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logoImage from "public/images/svg/Logo.svg";
+import logoImage from "src/public/images/svg/Logo.svg";
 import styles from "./styles.module.scss";
 import ClassNames from "@/libs/ClassNames";
 
