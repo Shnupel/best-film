@@ -1,10 +1,10 @@
 import React from "react";
 import ClassNames from "@/libs/ClassNames";
 import styles from "./styles.module.scss";
-import RightSidebarComponent from "components/RightSidebar";
-import HeaderComponent from "components/BodyHeader";
+import RightSidebarComponent from "@/components/RightSidebar";
+import HeaderComponent from "@/components/BodyHeader";
+import AboutFilmComponent from "@/components/AboutFilm";
 import CartsSliderComponent from "./components/CartsSlider";
-import AboutFilmComponent from "components/AboutFilm";
 
 const HomePage: React.FC = () => {
   return (

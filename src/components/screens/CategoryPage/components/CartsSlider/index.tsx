@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import CartComponent from "components/Cart";
+import CartComponent from "@/components/Cart";
 
 interface IProps {
   children?: React.ReactNode

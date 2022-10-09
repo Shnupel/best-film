@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import carouselItemIng from "public/images/img/Rectangle_8.png";
-import RightSidebarComponent from "../../RightSidebar";
+import carouselItemIng from "@/images/img/Rectangle_8.png";
+import RightSidebarComponent from "@/components/RightSidebar";
 import ClassNames from "@/libs/ClassNames";
 import styles from "./styles.module.scss";
 
