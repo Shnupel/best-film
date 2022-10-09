@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import Image from "next/image";
-import carouselItemIng from "public/images/img/Rectangle_8.png";
+import carouselItemIng from "@/images/img/Rectangle_8.png";
 
 const CartComponent: React.FC = () => {
   return (

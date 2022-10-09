@@ -5,6 +5,23 @@
   display: flex;
   align-items: center;justify-content: space-between;
   background-color: $color-darkGrey;
+  .nav{
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    padding: 0 29px;
+    .href{
+      color: white;
+      font-family: Roboto;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
   .image{
     width: 157px;
     height: 94px;

@@ -1,4 +1,4 @@
-export type BestFilmType = {
+export type SearchFilmsType = {
   id: string,
   rank: string,
   rankUpDown: string,
@@ -11,7 +11,12 @@ export type BestFilmType = {
   imDbRatingCount: string
 }
 
-export type BestTVShowType = {
+export type GetBestOffAllTimeMoviesType = {
+  items: SearchFilmsType[],
+  errorMessage: string
+}
+
+export type SearchBestTVShowType = {
   id: string,
   rank: string,
   rankUpDown: string,
@@ -22,4 +27,9 @@ export type BestTVShowType = {
   crew: string,
   imDbRating: string,
   imDbRatingCount: string
+}
+
+export type GetBestOffAllTimeTVShowType = {
+  items: SearchBestTVShowType[],
+  errorMessage: string
 }

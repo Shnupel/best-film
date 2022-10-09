@@ -1,7 +1,8 @@
 import React from "react";
+import { RatingColors } from "@/libs/RatingColors";
 import styles from "./styles.module.scss";
 import Image from "next/image";
-import carouselItemIng from "public/images/img/Rectangle_8.png";
+import carouselItemIng from "@/images/img/Rectangle_8.png";
 
 const AboutFilmComponent: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const AboutFilmComponent: React.FC = () => {
           <Image src={ carouselItemIng } sizes="( min-width: 100% ) " />
         </div>
         <div className={ styles.ratings }>
-          <div className={ styles.rating }>
+          <div style={{ border: `4px solid ${ RatingColors(8.9) }` }} className={ styles.rating }>
             <div className={ styles.title }>8.9</div>
             <div className={ styles.name }>Кинопоиск</div>
           </div>

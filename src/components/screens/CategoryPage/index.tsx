@@ -6,11 +6,11 @@ import HeaderComponent from "@/components/BodyHeader";
 import AboutFilmComponent from "@/components/AboutFilm";
 import CartsSliderComponent from "./components/CartsSlider";
 
-const HomePage: React.FC = () => {
+const CategoryPage: React.FC = () => {
   return (
     <main className={ ClassNames(styles.body, "container") }>
       <div className={ styles.center }>
-        <HeaderComponent />
+        <HeaderComponent> this category </HeaderComponent>
         <div className={ styles.text }>Мы собрали для Вас подборку лучших фильмов по теме "название подборки" с рейтингом от "минимальный рейтинг фильмов из подборки" и до "максимальный рейтинг фильмов из подборки". В неё вошли фильмы следующих жанров: "жанр1"("число раз"), "жанр2"(число раз), "жанр3"("число раз"). Самый новый фильм - "год" года, самый старый фильм - "год" года. Продолжительность фильмов от "минимальная продолжительность" до "максимальная продолжительность". Выбирайте фильм и приятного просмотра!</div>
         <div>
           <CartsSliderComponent>
@@ -30,4 +30,4 @@ const HomePage: React.FC = () => {
   )
 }
 
-export default HomePage;
+export default CategoryPage;

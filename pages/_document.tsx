@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import HeadElement from "../components/Head"
+import HeadElement from "components/Head"
 
 export default function Document(): JSX.Element {
   return(

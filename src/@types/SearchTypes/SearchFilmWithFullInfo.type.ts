@@ -1,16 +1,30 @@
 import { SearchFilm } from "./SearchFilmsByName.type";
-import { GenresType } from "../Genres.type";
-import { CompanyType } from "../Companies.type";
-import { CountryType } from "../CountriesFilm.type";
-import { FilmsBudgetType } from "../FilmsBudget.type";
-import { BrieflyFilmType } from "../FilmBriefly.type";
 
 export type PersonType = {
   id: string,
   name: string
 }
 
-export type SearchFilmByIdType = SearchFilm & {
+export type CountryType = {
+  key: string,
+  value: string
+}
+
+export type FilmsBudgetType = {
+  budget: string,
+  openingWeekendUSA: string,
+  grossUSA: string,
+  cumulativeWorldwideGross: string
+}
+
+export type BrieflyFilmType = {
+  id: string,
+  title: string,
+  image: string,
+  imDbRating: string
+}
+
+export type SearchFilmWithFullInfoType = SearchFilm & {
   id: string,
   originalTitle: string,
   fullTitle: string,
@@ -33,9 +47,9 @@ export type SearchFilmByIdType = SearchFilm & {
   actorList: PersonType[],
   fullCast: any,
   genres: string,
-  genreList: GenresType[],
+  genreList: Array<{ key: string, value: string }>,
   companies: string,
-  companyList: CompanyType[],
+  companyList: Array<{ id: string, name: string }>,
   countries: string,
   countryList: CountryType[],
   languages: string
