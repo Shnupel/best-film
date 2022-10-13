@@ -21,12 +21,16 @@ const AdvancedSearchSlice  = createSlice({
     changeTitle(state, action: PayloadAction<string>) {
       state.title = action.payload;
     },
-    createTypeTitle(state, action: PayloadAction<string[]>) {
-      state.title_type = action.payload;
+    changeTypeTitle(state, action: PayloadAction<string>) {
+      if(state.title_type.includes(action.payload)) {
+        state.title_type = state.title_type.filter(type => type === action.payload);
+      } else {
+        state.title_type.push(action.payload);
+      }
     }
   }
 });
 
-export const { changeTitle, createTypeTitle } = AdvancedSearchSlice.actions;
+export const { changeTitle, changeTypeTitle } = AdvancedSearchSlice.actions;
 export const AdvancedSearchSelector = ((state: RootState) => state.AdvancedSearch);
 export default AdvancedSearchSlice.reducer;

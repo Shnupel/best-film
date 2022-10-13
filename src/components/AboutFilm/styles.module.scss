@@ -6,6 +6,9 @@
     .image_block{
       max-width: 430px;
       margin-right: 30px;
+      .image{
+        height: auto;
+      }
       .ratings{
         display: flex;
         align-items: center;

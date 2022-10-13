@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import carouselImg from "@/images/img/Rectangle_6.png";
 import styles from "./styles.module.scss";
@@ -8,6 +8,7 @@ import { ErrorBoundary } from "components/ErrorBoundary";
 
 const RightSidebarComponent: React.FC = () => {
   const { data, error, isLoading } = useGetSerialsQuery('');
+
   const firstFiveCarts = data?.results.slice(0, 5);
   const isNormal = error === undefined && isLoading === false && data;
 
@@ -17,9 +18,7 @@ const RightSidebarComponent: React.FC = () => {
         <div className={ styles.carts }>
           <div className={ styles.title }> Похожие сериалы </div>
           {
-            isNormal ? firstFiveCarts?.map(data => <CollectionCartComponent data={ data } key={ data.id } />) :
-              error ? <h3> sorry, we can`t loading collections </h3> :
-              <h3> loading collections </h3>
+            isNormal && firstFiveCarts?.map(data => <CollectionCartComponent data={ data } key={ data.id } />)
           }
         </div>
         <div className={ styles.carousel }>

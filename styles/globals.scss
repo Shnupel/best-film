@@ -10,7 +10,7 @@ body {
 
 .wrapper{
   background-image: url("../src/public/images/img/background.png");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color: $color-black;

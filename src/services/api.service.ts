@@ -1,4 +1,4 @@
-import { buildCreateApi, coreModule, fetchBaseQuery, reactHooksModule } from "@reduxjs/toolkit/dist/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { API_URL, API_KEY } from "@/constants/api";
 import { GetBestOffAllTimeMoviesType, GetBestOffAllTimeTVShowType } from "@/types/SearchTypes/MediaInTop.type";
 import { SearchFilmByNameResultTypes, SearchInAllCategoriesResultTypes } from "@/types/SearchTypes/SearchFilmsByName.type";
@@ -7,16 +7,10 @@ import { SearchByActorResultTypes } from "@/types/SearchTypes/SearchByActor.type
 import { SearchCompanyResultTypes } from "@/types/SearchTypes/SearchCompany.type";
 import { SearchByKeywordResultsAllTypes } from "@/types/SearchTypes/SearchByKeyword.type";
 import { GetMediaSerialResultType } from "@/types/SearchTypes/AdvancedSearch/GetMedia.type";
-import { SearchFilmWithFullInfoType } from "@/types/SearchTypes/SearchFilmWithFullInfo.type";
 import { AdvancedSearch } from "@/services/AdvancedSearch";
 
 // ? methods, which starts with get - get some elements in selections
 // ? methods, which starts with search - search this element in catalog
-
-const createApi = buildCreateApi(
-  coreModule(),
-  reactHooksModule({ unstable__sideEffectsInRender: true })
-)
 
 export const filmsApi = createApi({
   reducerPath: "filmApi",
@@ -37,9 +31,6 @@ export const filmsApi = createApi({
     searchOfAllCatalogs: builder.query<SearchFilmByNameResultTypes, string>({
       query: (name: string) => 'Search/' + API_KEY + `/${ name }`
     }),
-    searchFilmById: builder.query<SearchFilmWithFullInfoType, string>({
-      query: (id: string) => 'Title/' + API_KEY + `/${ id }`
-    }),
     searchFilms: builder.query<SearchInAllCategoriesResultTypes, string>({
       query: (filmTitle: string) => 'SearchMovie/' + API_KEY + `/${ filmTitle }`
     }),
@@ -55,8 +46,8 @@ export const filmsApi = createApi({
     searchByKeyword: builder.query<SearchByKeywordResultsAllTypes, string>({
       query: (keyWord: string) => 'SearchKeyword/' + API_KEY + `/${ keyWord }`
     }),
-    advancedSearch: builder.query({
-      query: () => AdvancedSearch()
+    advancedSearch: builder.query<any, { viewType?: string }>({
+      query: (viewType) => AdvancedSearch(viewType)
     })
   })
 });
@@ -67,7 +58,6 @@ export const {
   useGetFilmsQuery,
   useGetSerialsQuery,
   useSearchOfAllCatalogsQuery,
-  useSearchFilmByIdQuery,
   useSearchFilmsQuery,
   useSearchSerialQuery,
   useSearchOnActorsQuery,
