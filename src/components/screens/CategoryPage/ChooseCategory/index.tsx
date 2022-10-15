@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import { useAppSelector, useAppDispatch } from "@/store/store";
-import { changeTypeTitle } from "@/store/slices/AdvancedSearch";
+import { useAppDispatch } from "@/store/store";
+import { changeTypeTitle } from "@/store/slices/AdvancedSearchCategories";
 import { TypeTitle } from "@/services/AdvancedSearch/TypeTitle";
 import ClassNames from "@/libs/ClassNames";
 import styles from "./styles.module.scss";

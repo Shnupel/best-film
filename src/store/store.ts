@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux"
 import { filmsApi } from "@/services/api.service";
-import AdvancedSearchReducer from "@/store/slices/AdvancedSearch";
+import AdvancedSearchReducer from "@/store/slices/AdvancedSearchCategories";
+import AdvancedSearchResult from "@/store/slices/AdvancedSearchResult";
 
 export const store = configureStore({
   reducer: {
-    AdvancedSearch: AdvancedSearchReducer,
+    AdvancedSearchParams: AdvancedSearchReducer,
+    AdvancedSearchResult: AdvancedSearchResult,
     [filmsApi.reducerPath]: filmsApi.reducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(filmsApi.middleware)

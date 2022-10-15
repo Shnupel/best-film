@@ -4,5 +4,6 @@ export interface AdvancedSearchType {
   realise_date?: {
     from: string,
     to: string
-  }
+  },
+  ResultRef: string
 }

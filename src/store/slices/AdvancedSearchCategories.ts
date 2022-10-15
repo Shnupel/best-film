@@ -2,8 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { AdvancedSearchType } from "@/services/AdvancedSearch/AdvancedSearch.type";
 import { RootState } from "@/store/store";
+import { RefParams } from "@/services/AdvancedSearch/RefParams";
 
-interface AdvancedSearchState extends AdvancedSearchType {}
+export interface AdvancedSearchState extends AdvancedSearchType {}
 
 const initialState: AdvancedSearchState = {
   title: "",
@@ -11,15 +12,17 @@ const initialState: AdvancedSearchState = {
   realise_date: {
     from: "",
     to: ""
-  }
+  },
+  ResultRef: ""
 }
 
-const AdvancedSearchSlice  = createSlice({
+const AdvancedSearchParamsSlice  = createSlice({
   name: "AdvancedSearch",
   initialState,
   reducers: {
     changeTitle(state, action: PayloadAction<string>) {
       state.title = action.payload;
+      state.ResultRef = RefParams(state);
     },
     changeTypeTitle(state, action: PayloadAction<string>) {
       if(state.title_type.includes(action.payload)) {
@@ -27,10 +30,11 @@ const AdvancedSearchSlice  = createSlice({
       } else {
         state.title_type.push(action.payload);
       }
+      state.ResultRef = RefParams(state);
     }
-  }
+  },
 });
 
-export const { changeTitle, changeTypeTitle } = AdvancedSearchSlice.actions;
-export const AdvancedSearchSelector = ((state: RootState) => state.AdvancedSearch);
-export default AdvancedSearchSlice.reducer;
+export const { changeTitle, changeTypeTitle } = AdvancedSearchParamsSlice.actions;
+export const AdvancedSearchSelector = ((state: RootState) => state.AdvancedSearchParams);
+export default AdvancedSearchParamsSlice.reducer;

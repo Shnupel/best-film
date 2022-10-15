@@ -7,7 +7,7 @@ import { SearchByActorResultTypes } from "@/types/SearchTypes/SearchByActor.type
 import { SearchCompanyResultTypes } from "@/types/SearchTypes/SearchCompany.type";
 import { SearchByKeywordResultsAllTypes } from "@/types/SearchTypes/SearchByKeyword.type";
 import { GetMediaSerialResultType } from "@/types/SearchTypes/AdvancedSearch/GetMedia.type";
-import { AdvancedSearch } from "@/services/AdvancedSearch";
+import { AdvancedSearch } from "@/services/AdvancedSearch/RefParams";
 
 // ? methods, which starts with get - get some elements in selections
 // ? methods, which starts with search - search this element in catalog
@@ -45,9 +45,6 @@ export const filmsApi = createApi({
     }),
     searchByKeyword: builder.query<SearchByKeywordResultsAllTypes, string>({
       query: (keyWord: string) => 'SearchKeyword/' + API_KEY + `/${ keyWord }`
-    }),
-    advancedSearch: builder.query<any, { viewType?: string }>({
-      query: (viewType) => AdvancedSearch(viewType)
     })
   })
 });
@@ -63,5 +60,4 @@ export const {
   useSearchOnActorsQuery,
   useSearchCompanyQuery,
   useSearchByKeywordQuery,
-  useAdvancedSearchQuery
 } = filmsApi;
