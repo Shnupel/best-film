@@ -8,8 +8,7 @@ import { ErrorBoundary } from "components/ErrorBoundary";
 
 const RightSidebarComponent: React.FC = () => {
   const { data, error, isLoading } = useGetSerialsQuery('');
-
-  const firstFiveCarts = data?.results.slice(0, 5);
+  const firstFiveCarts = data?.results && data?.results.slice(0, 5);
   const isNormal = error === undefined && isLoading === false && data;
 
   return (

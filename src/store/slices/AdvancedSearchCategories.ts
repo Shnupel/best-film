@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { AdvancedSearchType } from "@/services/AdvancedSearch/AdvancedSearch.type";
+import { AdvancedSearchParamsType } from "@/services/AdvancedSearch/AdvancedSearch.type";
 import { RootState } from "@/store/store";
 import { RefParams } from "@/services/AdvancedSearch/RefParams";
 
-export interface AdvancedSearchState extends AdvancedSearchType {}
+export interface AdvancedSearchState extends AdvancedSearchParamsType {}
 
 const initialState: AdvancedSearchState = {
   title: "",

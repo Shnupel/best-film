@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "@/store/store";
+import { IAdvancedSearchResult } from "@/services/AdvancedSearch/AdvancedSearch.type";
 
 export enum LoadStatusesEnum {
   LOADING = "loading",
@@ -41,7 +42,6 @@ const AdvancedSearchResult = createSlice({
     builder.addCase(AdvancedSearchThunk.fulfilled, (state, { payload }) => {
       state.loadingStatus = LoadStatusesEnum.SUCCESS;
       state.data = payload;
-      1737
     })
   }
 });

@@ -4,7 +4,6 @@ import CartComponent from "@/components/Cart";
 import { AdvancedSearchResultSelector, AdvancedSearchThunk } from "@/store/slices/AdvancedSearchResult";
 import { AdvancedSearchSelector } from "@/store/slices/AdvancedSearchCategories";
 import { useAppDispatch, useAppSelector } from "@/store/store";
-import Link from "next/link";
 
 interface IProps {
   children?: React.ReactNode,
@@ -27,7 +26,9 @@ const CartsSliderComponent: React.FC<IProps> = ({ children, viewType }) => {
       <section className={ styles.carts }>
         { children && <div className={ styles.title }>{ children }</div> }
         <div className={ styles.cartCarousel }>
-          <Link href={"/ChoosedFilms/choose"}><a>link</a></Link>
+          {
+            // data.results.map(() => <div></div>)
+          }
           <CartComponent />
           <CartComponent />
           <CartComponent />
