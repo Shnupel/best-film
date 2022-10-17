@@ -14,7 +14,7 @@ const initialState: AdvancedSearchState = {
   }
 }
 
-const AdvancedSearchSlice  = createSlice({
+const AdvancedSearchParamsSlice  = createSlice({
   name: "AdvancedSearch",
   initialState,
   reducers: {
@@ -31,6 +31,6 @@ const AdvancedSearchSlice  = createSlice({
   }
 });
 
-export const { changeTitle, changeTypeTitle } = AdvancedSearchSlice.actions;
-export const AdvancedSearchSelector = ((state: RootState) => state.AdvancedSearch);
-export default AdvancedSearchSlice.reducer;
+export const { changeTitle, changeTypeTitle } = AdvancedSearchParamsSlice.actions;
+export const AdvancedSearchParamsSelector = ((state: RootState) => state.AdvancedSearch);
+export default AdvancedSearchParamsSlice.reducer;

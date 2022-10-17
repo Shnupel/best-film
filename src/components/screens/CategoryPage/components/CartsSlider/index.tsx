@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import styles from "./styles.module.scss";
 import CartComponent from "@/components/Cart";
 import { useAdvancedSearchQuery } from "@/services/api.service";
+import { useAppSelector } from "@/store/store";
+import { AdvancedSearchParamsSelector } from "@/store/slices/AdvancedSearch";
 
 interface IProps {
   children?: React.ReactNode,
@@ -9,7 +11,8 @@ interface IProps {
 }
 
 const CartsSliderComponent: React.FC<IProps> = ({ children, viewType }) => {
-  const { data, error, isLoading } = useAdvancedSearchQuery({ viewType });
+  const SearchParams = useAppSelector(AdvancedSearchParamsSelector);
+  const { data, error, isLoading } = useAdvancedSearchQuery({ viewType, SearchParams   });
   useEffect(() => console.log(data, error, isLoading), [data, error, isLoading]);
   return (
     <>

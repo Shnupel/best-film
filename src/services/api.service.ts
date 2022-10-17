@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { API_URL, API_KEY } from "@/constants/api";
+import { AdvancedSearchUrl } from "@/services/AdvancedSearch";
 import { GetBestOffAllTimeMoviesType, GetBestOffAllTimeTVShowType } from "@/types/SearchTypes/MediaInTop.type";
 import { SearchFilmByNameResultTypes, SearchInAllCategoriesResultTypes } from "@/types/SearchTypes/SearchFilmsByName.type";
 import { SearchSerialResultTypes } from "@/types/SearchTypes/SearchSerial.type";
@@ -7,7 +8,7 @@ import { SearchByActorResultTypes } from "@/types/SearchTypes/SearchByActor.type
 import { SearchCompanyResultTypes } from "@/types/SearchTypes/SearchCompany.type";
 import { SearchByKeywordResultsAllTypes } from "@/types/SearchTypes/SearchByKeyword.type";
 import { GetMediaSerialResultType } from "@/types/SearchTypes/AdvancedSearch/GetMedia.type";
-import { AdvancedSearch } from "@/services/AdvancedSearch";
+import { AdvancedSearchType } from "@/services/AdvancedSearch/AdvancedSearch.type";
 
 // ? methods, which starts with get - get some elements in selections
 // ? methods, which starts with search - search this element in catalog
@@ -46,8 +47,8 @@ export const filmsApi = createApi({
     searchByKeyword: builder.query<SearchByKeywordResultsAllTypes, string>({
       query: (keyWord: string) => 'SearchKeyword/' + API_KEY + `/${ keyWord }`
     }),
-    advancedSearch: builder.query<any, { viewType?: string }>({
-      query: (viewType) => AdvancedSearch(viewType)
+    advancedSearch: builder.query<any, { viewType?: string, SearchParams: AdvancedSearchType }>({
+      query: ({ viewType, SearchParams }) => AdvancedSearchUrl({ viewType, SearchParams })
     })
   })
 });
