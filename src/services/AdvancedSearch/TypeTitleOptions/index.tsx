@@ -1,4 +1,4 @@
-export const TypeTitle = {
+export const TypeTitleOptions = {
   feature: "Feature Film",
   tv_special: "TV Special",
   short: "Short Film",

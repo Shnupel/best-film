@@ -1,15 +1,23 @@
 import React from "react";
-import styles from "./styles.module.scss";
 import Image from "next/image";
-import carouselItemIng from "@/images/img/Rectangle_8.png";
+import { GeneralResultType } from "@/types/SearchTypes/Result.type";
+import { ErrorBoundary } from "components/ErrorBoundary";
+import styles from "./styles.module.scss";
+import Link from "next/link";
 
-const CartComponent: React.FC = () => {
+interface IProps {
+  data: GeneralResultType
+}
+
+const CartComponent: React.FC<IProps> = ({ data }) => {
   return (
-    <div className={ styles.item }>
-      <Image src={ carouselItemIng } />
-      <div className={ styles.title }>Механик</div>
-      <div className={ styles.subtitle }>2020, Драма, США</div>
-    </div>
+    <ErrorBoundary>
+      <div className={ styles.item }>
+        <Link href={ `movie/${ data.id }` }><a><Image src={ data.image } layout="fixed" width={ 245 } height={ 381 } /></a></Link>
+        <div className={ styles.title }> { data.title } </div>
+        <div className={ styles.subtitle }>2020, Драма, США</div>
+      </div>
+    </ErrorBoundary>
   )
 }
 

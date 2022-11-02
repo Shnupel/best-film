@@ -6,6 +6,7 @@ import AdvancedSearchReducer from "@/store/slices/AdvancedSearch";
 export const store = configureStore({
   reducer: {
     AdvancedSearch: AdvancedSearchReducer,
+    // AdvancedSearchParams: AdvancedSearchReducer,
     [filmsApi.reducerPath]: filmsApi.reducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(filmsApi.middleware)

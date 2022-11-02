@@ -1,0 +1,47 @@
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 60px;
+  .popup {
+    padding: 40px;
+    width: 40vw;
+    border: 1px solid rgba(43, 43, 43, 1);
+    border-radius: 5px;
+    .content {
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      .title {
+        font-size: 32px;
+        line-height: 150%;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .field {
+        padding: 15px;
+        color: white;
+        background-color: #161616;
+        border-radius: 8px;
+        border: 1px solid rgb(43, 43, 43);
+        margin-bottom: 30px;
+      }
+      .sendBtn {
+        padding: 15px;
+        color: #ffffff;
+        font-size: 20px;
+        background-color: #161616;
+        border-radius: 8px;
+        border: 1px solid rgba(43, 43, 43, 1);
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+      .notHaveAccount {
+        text-align: right;
+        a {
+          color: #367883;
+        }
+      }
+    }
+  }
+}

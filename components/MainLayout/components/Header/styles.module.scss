@@ -2,38 +2,44 @@
 
 .header{
   padding: 30px 0;
-  display: flex;
-  align-items: center;justify-content: space-between;
   background-color: $color-darkGrey;
-  .nav{
+  width: 100%;
+  align-items: center;
+  .header_inner {
     display: flex;
     align-items: center;
-    flex: 1 1 auto;
     justify-content: space-between;
-    padding: 0 29px;
-    .href{
-      color: white;
-      font-family: Roboto;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 21px;
-      letter-spacing: 0px;
-      text-align: center;
-      text-decoration: none;
+    .nav{
+      display: flex;
+      align-items: center;
+      flex: 1 1 auto;
+      //justify-content: space-between;
+      padding: 0 29px;
+    }
+    .image{
+      width: 157px;
+      height: 94px;
+    }
+    .input{
+      background-position: 95% 50%;
+      background-repeat: no-repeat;
+      background-color: rgba(37, 42, 44, 1);
+      padding: 15px 22px;
+      border-radius: 93px;
+      color: #ffffff;
+      width: 720px;
+      border: 2px solid rgba(37, 42, 44, 1)
     }
   }
-  .image{
-    width: 157px;
-    height: 94px;
-  }
-  .input{
-    background-position: 95% 50%;
-    background-repeat: no-repeat;
-    background-color: rgba(37, 42, 44, 1);
-    padding: 30px 22px;
-    border-radius: 93px;
-    color: #ffffff;
-    width: 720px;
-    border: 2px solid rgba(37, 42, 44, 1)
+  .accountLinks {
+    margin-left: 15px;
+    .accountLink {
+      color: white;
+      font-size: 18px;
+      line-height: 21px;
+    }
+    .SignIn {
+      margin-right: 10px;
+    }
   }
 }

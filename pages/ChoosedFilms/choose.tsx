@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import ChooseCategoryPage from "@/pages/CategoryPage/ChooseCategory";
+import ChooseCategoryPage from "@/pages/CategoryPage/ChooseCategoryInAdvancedSearch";
 import MainLayout from "components/MainLayout";
 
 const ChoosePage: NextPage = () => {

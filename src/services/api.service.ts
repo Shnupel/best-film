@@ -8,46 +8,54 @@ import { SearchByActorResultTypes } from "@/types/SearchTypes/SearchByActor.type
 import { SearchCompanyResultTypes } from "@/types/SearchTypes/SearchCompany.type";
 import { SearchByKeywordResultsAllTypes } from "@/types/SearchTypes/SearchByKeyword.type";
 import { GetMediaSerialResultType } from "@/types/SearchTypes/AdvancedSearch/GetMedia.type";
-import { AdvancedSearchType } from "@/services/AdvancedSearch/AdvancedSearch.type";
+import { AdvancedSearchParamsType, AdvancedSearchViewSortType } from "@/services/AdvancedSearch/AdvancedSearchParamsType";
+import { version } from "@/constants/version";
 
 // ? methods, which starts with get - get some elements in selections
 // ? methods, which starts with search - search this element in catalog
+
+const VersionVerificate = (arg: string) => {
+  if(version === "dev"){
+    return ""
+  }
+  return arg;
+}
 
 export const filmsApi = createApi({
   reducerPath: "filmApi",
   baseQuery: fetchBaseQuery({ baseUrl: API_URL + 'en/API/' }),
   endpoints: (builder) => ({
     getBestOffAllTimeMovies: builder.query<GetBestOffAllTimeMoviesType, string>({
-      query: () => 'MostPopularMovies/' + API_KEY
+      query: () => VersionVerificate('MostPopularMovies/' + API_KEY)
     }),
     getBestOffAllTimeTVShow: builder.query<GetBestOffAllTimeTVShowType, string>({
-      query: () => 'MostPopularTVs/' + API_KEY
+      query: () => VersionVerificate('MostPopularTVs/' + API_KEY)
     }),
     getSerials: builder.query<GetMediaSerialResultType, string>({
-      query: () => 'AdvancedSearch/' + API_KEY + '?title_type=tv_series'
+      query: () => VersionVerificate('AdvancedSearch/' + API_KEY + '?title_type=tv_series')
     }),
     getFilms: builder.query<GetMediaSerialResultType, string>({
-      query: () => 'AdvancedSearch/' + API_KEY + '?title_type=tv_movie'
+      query: () => VersionVerificate('AdvancedSearch/' + API_KEY + '?title_type=tv_movie')
     }),
     searchOfAllCatalogs: builder.query<SearchFilmByNameResultTypes, string>({
-      query: (name: string) => 'Search/' + API_KEY + `/${ name }`
+      query: (name: string) => VersionVerificate('Search/' + API_KEY + `/${ name }`)
     }),
     searchFilms: builder.query<SearchInAllCategoriesResultTypes, string>({
-      query: (filmTitle: string) => 'SearchMovie/' + API_KEY + `/${ filmTitle }`
+      query: (filmTitle: string) => VersionVerificate('SearchMovie/' + API_KEY + `/${ filmTitle }`)
     }),
     searchSerial: builder.query<SearchSerialResultTypes, string>({
-      query: (serialTitle: string) => 'SearchSeries/' + API_KEY + `/${ serialTitle }`
+      query: (serialTitle: string) => VersionVerificate('SearchSeries/' + API_KEY + `/${ serialTitle }`)
     }),
     searchOnActors: builder.query<SearchByActorResultTypes, string>({
-      query: (actorsName: string) => 'SearchName/' + API_KEY + `/${ actorsName }`
+      query: (actorsName: string) => VersionVerificate('SearchName/' + API_KEY + `/${ actorsName }`)
     }),
     searchCompany: builder.query<SearchCompanyResultTypes, string>({
-      query: (companyName: string) => 'SearchCompany/' + API_KEY + `/${ companyName }`
+      query: (companyName: string) => VersionVerificate('SearchCompany/' + API_KEY + `/${ companyName }`)
     }),
     searchByKeyword: builder.query<SearchByKeywordResultsAllTypes, string>({
-      query: (keyWord: string) => 'SearchKeyword/' + API_KEY + `/${ keyWord }`
+      query: (keyWord: string) => VersionVerificate('SearchKeyword/' + API_KEY + `/${ keyWord }`)
     }),
-    advancedSearch: builder.query<any, { viewType?: string, SearchParams: AdvancedSearchType }>({
+    advancedSearch: builder.query<any, { viewType?: AdvancedSearchViewSortType, SearchParams: AdvancedSearchParamsType }>({
       query: ({ viewType, SearchParams }) => AdvancedSearchUrl({ viewType, SearchParams })
     })
   })

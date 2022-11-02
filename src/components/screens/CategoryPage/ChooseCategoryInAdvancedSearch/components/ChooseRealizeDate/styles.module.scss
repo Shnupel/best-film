@@ -1,0 +1,15 @@
+.form {
+  .inputs {
+    display: flex;
+    align-items: center;
+    .input {
+      margin-right: 10px;
+      padding: 10px 10px;
+      color: rgba(109, 122, 124, 1);
+      border-radius: 15px;
+      border: 1px solid #252A2C;
+      font-size: 24px;
+      background-color: #1B1E1E;
+    }
+  }
+}

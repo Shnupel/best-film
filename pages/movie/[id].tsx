@@ -11,7 +11,9 @@ interface IProps {
 const MoviePage: NextPage<IProps> = ({ data }) => {
   return (
     <MainLayout>
-      <MoviePageComponent data={ data } />
+      {
+        data && <MoviePageComponent data={ data } />
+      }
     </MainLayout>
   )
 }
