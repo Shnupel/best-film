@@ -8,7 +8,7 @@ import { SearchByActorResultTypes } from "@/types/SearchTypes/SearchByActor.type
 import { SearchCompanyResultTypes } from "@/types/SearchTypes/SearchCompany.type";
 import { SearchByKeywordResultsAllTypes } from "@/types/SearchTypes/SearchByKeyword.type";
 import { GetMediaSerialResultType } from "@/types/SearchTypes/AdvancedSearch/GetMedia.type";
-import { AdvancedSearchParamsType, AdvancedSearchViewSortType } from "@/services/AdvancedSearch/AdvancedSearchParamsType";
+import { AdvancedSearchParamsType, AdvancedSearchViewSortType } from "@/services/AdvancedSearch/AdvancedSearchParams.type";
 import { version } from "@/constants/version";
 
 // ? methods, which starts with get - get some elements in selections

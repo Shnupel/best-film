@@ -8,3 +8,5 @@ export const CompaniesOptions = {
   mgm: "MGM",
   warner: "Warner Bros"
 }
+
+// Todo: Change in advanced search/index.tsx file variable, and add vosmoznost to create link with addPathName

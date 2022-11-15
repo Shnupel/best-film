@@ -1,5 +1,5 @@
 import { API_KEY } from "@/constants/api";
-import { AdvancedSearchParamsType, AdvancedSearchViewSortType } from "@/services/AdvancedSearch/AdvancedSearchParamsType";
+import { AdvancedSearchParamsType, AdvancedSearchViewSortType } from "@/services/AdvancedSearch/AdvancedSearchParams.type";
 
 interface IProps {
   viewType?: AdvancedSearchViewSortType,
@@ -19,15 +19,20 @@ const linkForViewType = (viewParam?: string): string => {
   return ""
 }
 
+// todo: see CompaniesOptions/index.tsx at 13th string
+
 export const AdvancedSearchUrl = ({ viewType, SearchParams }: IProps): string => {
   const title_type = SearchParams.title_type ? `&title_type=${ [...SearchParams.title_type] }` : "";
   const title = SearchParams.title ? `&title=${ SearchParams.title }` : "";
   const release_date = (SearchParams.realise_date?.from && SearchParams.realise_date?.to) ? `&release_date=${ SearchParams.realise_date?.from }-01-01,${ SearchParams.realise_date?.to }-12-31` : "";
   const genres = SearchParams.genres ? `&genres=${ SearchParams.genres }` : "";
   const award = SearchParams.awards ? `&groups=${ SearchParams.awards }` : "";
+  const ageRating = SearchParams.ageRatings ? `certificates=${ SearchParams.ageRatings }` : "";
   const keyword = SearchParams.keyWords ? `&keywords=${ SearchParams.keyWords }` : "";
   const company = SearchParams.company ? `&companies=${ SearchParams.company }` : "";
-  const params = title + release_date + title_type + genres + award + keyword + company;
+  const params = title + release_date + title_type + genres + award + keyword + company + ageRating;
+
+  console.log(params);
 
   return 'AdvancedSearch/' + API_KEY + "?" + (params !== "" ? params : "groups=top_250") + linkForViewType(viewType);
 };

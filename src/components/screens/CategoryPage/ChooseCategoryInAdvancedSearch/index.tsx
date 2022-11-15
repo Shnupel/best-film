@@ -8,6 +8,7 @@ import ChooseAwardsComponent from "./components/ChooseAwards";
 import ChooseAgeRating from "./components/ChooseAgeRating";
 import ChooseKeyWordComponent from "./components/ChooseKeyWord";
 import ChooseByTitleComponent from "./components/ChooseByTitle";
+import ChooseCompanyComponent from "./components/ChooseCompany";
 
 const ChooseCategoryPage: NextPage = () => {
   return (
@@ -15,6 +16,7 @@ const ChooseCategoryPage: NextPage = () => {
       <ChooseByTitleComponent />
       <TitleTypeComponent />
       <ChooseRealizeDateComponent />
+      <ChooseCompanyComponent />
       <ChooseGenreComponent />
       <ChooseAwardsComponent />
       <ChooseAgeRating />

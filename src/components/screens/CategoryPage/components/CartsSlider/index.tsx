@@ -5,7 +5,7 @@ import { AdvancedSearchParamsSelector } from "@/store/slices/AdvancedSearch";
 import CartComponent from "@/components/Cart";
 import CarouselComponent from "@/components/Carousel";
 import { ErrorBoundary } from "components/ErrorBoundary";
-import { AdvancedSearchViewSortType } from "@/services/AdvancedSearch/AdvancedSearchParamsType";
+import { AdvancedSearchViewSortType } from "@/services/AdvancedSearch/AdvancedSearchParams.type";
 import { GeneralResultType } from "@/types/SearchTypes/Result.type";
 import styles from "./styles.module.scss";
 import { SwiperSlide } from "swiper/react";

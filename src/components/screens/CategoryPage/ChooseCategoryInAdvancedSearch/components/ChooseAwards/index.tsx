@@ -1,16 +1,31 @@
 import React from "react";
 import { AwardsOptions } from "@/services/AdvancedSearch/AwardsOptions";
 import styles from "./styles.module.scss";
+import { useAppDispatch, useAppSelector } from "@/store/store";
+import { AdvancedSearchParamsSelector, changeAwards } from "@/store/slices/AdvancedSearch";
+
+type myKeyType = keyof typeof AwardsOptions;
+const AwardsOptionsKeys: myKeyType[] = Object.keys(AwardsOptions) as myKeyType[];
 
 const ChooseAwardsComponent: React.FC = () => {
-  const AwardsOptionsKeys = Object.keys(AwardsOptions);
+  const dispatch = useAppDispatch();
+  const toggleAward = (award: myKeyType) => dispatch(changeAwards(award));
+
+  const { awards: SelectedAwards } = useAppSelector(AdvancedSearchParamsSelector);
+  const isSelectedAward = (award: myKeyType) => SelectedAwards.includes(award);
   return (
     <form className={ styles.form }>
       <h3 className="subtitle">Choose award</h3>
       <div className={ styles.awards }>
         {
-          //@ts-ignore
-          AwardsOptionsKeys.map(value => <label className={ styles.label } key={ value }><input type="checkbox"/><span >{ AwardsOptions[value] }</span></label>)
+          AwardsOptionsKeys.map(value => {
+            return (
+              <label onChange={ () => toggleAward(value) } className={ styles.label } key={ value }>
+                <input defaultChecked={ isSelectedAward(value) } type="checkbox"/>
+                <span> { AwardsOptions[value] } </span>
+              </label>
+            )
+          })
         }
       </div>
     </form>
