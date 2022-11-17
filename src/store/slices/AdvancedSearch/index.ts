@@ -2,7 +2,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import { AdvancedSearchParamsType } from "@/services/AdvancedSearch/AdvancedSearchParams.type";
 import { RootState } from "@/store/store";
-import { GetInitialState } from "@/store/slices/GetInitialStateOfAdvancedSearch";
+import ChangeAdvancedSearchesState, { GetInitialState } from "./ChangeAdvancedSearchesState";
 
 interface AdvancedSearchState extends AdvancedSearchParamsType {}
 
@@ -13,12 +13,14 @@ const initialState: AdvancedSearchState = {
     from: "",
     to: ""
   },
-  genres: [],
-  awards: [],
-  ageRatings: [],
+  genres: GetInitialState("genres") || [],
+  awards: GetInitialState("awards") || [],
+  ageRatings: GetInitialState("ageRatings") || [],
   keyWords: "",
-  company: []
+  company: GetInitialState("company") || []
 }
+
+const ChangeState = new ChangeAdvancedSearchesState();
 
 const AdvancedSearchParamsSlice  = createSlice({
   name: "AdvancedSearch",
@@ -28,16 +30,10 @@ const AdvancedSearchParamsSlice  = createSlice({
       state.title = action.payload;
     },
     changeTypeTitle(state, { payload }: PayloadAction<string>) {
-      if(!state.title_type.includes(payload)) {
-        const newValue = [...state.title_type, payload];
-        state.title_type = newValue;
-        localStorage.setItem("title_type", JSON.stringify(newValue));
-        return;
-      }
-      const newValue = state.title_type.filter(type => type !== payload);
-      state.title_type = newValue;
-      localStorage.removeItem("title_type");
-      localStorage.setItem("title_type", JSON.stringify(newValue));
+      window.localStorage.removeItem("title_type");
+      const newState = ChangeState.ToggleValueInArray(state.title_type, payload);
+      state.title_type = newState;
+      window.localStorage.setItem("title_type", JSON.stringify(newState));
     },
     changeRealiseDate(state, { payload }: PayloadAction<{ from?: string, to?: string }>) {
       if(payload.from){
@@ -48,35 +44,31 @@ const AdvancedSearchParamsSlice  = createSlice({
       }
     },
     changeGenres(state, { payload }: PayloadAction<string>) {
-      if(!state.genres.includes(payload)){
-        state.genres = [...state.genres, payload];
-        return;
-      }
-      state.genres = state.genres.filter(value => value === payload);
+      window.localStorage.removeItem("genres");
+      const newState = ChangeState.ToggleValueInArray(state.genres, payload);
+      state.genres = newState;
+      window.localStorage.setItem("genres", JSON.stringify(newState));
     },
     changeAwards(state, { payload }: PayloadAction<string>) {
-      if(state.awards.includes(payload)) {
-        state.awards = [...state.awards, payload];
-        return;
-      }
-      state.awards = state.awards.filter(award => award === payload);
+      window.localStorage.removeItem("awards");
+      const newState = ChangeState.ToggleValueInArray(state.awards, payload);
+      state.awards = newState;
+      window.localStorage.setItem("awards", JSON.stringify(newState));
     },
     changeAgeRating(state, { payload }: PayloadAction<string>) {
-      if(!state.ageRatings.includes(payload)) {
-        state.ageRatings = [...state.ageRatings, payload];
-        return;
-      }
-      state.ageRatings = state.ageRatings.filter(ageRating => ageRating === payload);
+      window.localStorage.removeItem("ageRatings");
+      const newState = ChangeState.ToggleValueInArray(state.ageRatings, payload);
+      state.ageRatings = newState;
+      window.localStorage.setItem("ageRatings", JSON.stringify(newState));
     },
     changeKeyWord(state, { payload }: PayloadAction<string>) {
       state.keyWords = payload;
     },
     changeCompany(state, { payload }: PayloadAction<string>) {
-      if(!state.company.includes(payload)){
-        state.company = [...state.company, payload];
-        return;
-      }
-      state.company = state.company.filter(companies => companies === payload);
+      window.localStorage.removeItem("company");
+      const newState = ChangeState.ToggleValueInArray(state.company, payload);
+      state.company = newState;
+      window.localStorage.setItem("company", JSON.stringify(newState));
     }
   }
 });

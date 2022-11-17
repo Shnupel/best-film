@@ -14,11 +14,11 @@ const routes = [
   },
   {
     name: "Подборки",
-    path: "/ChoosedFilms"
+    path: "/SelectedFilms"
   },
   {
     name: "Категории",
-    path: "/ChoosedFilms/choose"
+    path: "/SelectCategories"
   }
 ];
 

@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import MainLayout from "components/MainLayout";
-import CategoryPage from "@/pages/CategoryPage";
+import CategoryPage from "@/pages/SelectedPage";
 
-const ChoosedFilmsPage: NextPage = () => {
+const SelectedFilmPage: NextPage = () => {
   return (
     <MainLayout>
       <CategoryPage />
@@ -10,4 +10,4 @@ const ChoosedFilmsPage: NextPage = () => {
   )
 }
 
-export default ChoosedFilmsPage;
+export default SelectedFilmPage;

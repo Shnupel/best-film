@@ -1,8 +1,8 @@
 import { NextPage } from "next";
-import ChooseCategoryPage from "@/pages/CategoryPage/ChooseCategoryInAdvancedSearch";
 import MainLayout from "components/MainLayout";
+import ChooseCategoryPage from "@/pages/SelectAdvancedCategoriesPage";
 
-const ChoosePage: NextPage = () => {
+const SelectCategoriesPage: NextPage = () => {
   return (
     <MainLayout>
       <ChooseCategoryPage />
@@ -10,4 +10,4 @@ const ChoosePage: NextPage = () => {
   )
 }
 
-export default ChoosePage;
+export default SelectCategoriesPage;

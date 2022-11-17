@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { AdvancedSearchParamsSelector, changeAgeRating } from "@/store/slices/AdvancedSearch";
 import { AgeRatingOptions } from "@/services/AdvancedSearch/AgeRatingOptions";
 import { useAppDispatch, useAppSelector } from "@/store/store";
@@ -20,8 +20,8 @@ const ChooseRatingComponent: React.FC = () => {
         {
           AgeRatingOptionsKeys.map(value => {
             return (
-              <label onChange={ () => toggleOption(value) } key={ value }>
-                <input defaultChecked={ isSelectedRating(value) } type="checkbox" />
+              <label key={ value }>
+                <input defaultChecked={ isSelectedRating(value) } onInput={ () => toggleOption(value) } type="checkbox" />
                 <span> { AgeRatingOptions[value] } </span>
               </label>
             )

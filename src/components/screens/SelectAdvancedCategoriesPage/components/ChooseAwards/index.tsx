@@ -20,8 +20,8 @@ const ChooseAwardsComponent: React.FC = () => {
         {
           AwardsOptionsKeys.map(value => {
             return (
-              <label onChange={ () => toggleAward(value) } className={ styles.label } key={ value }>
-                <input defaultChecked={ isSelectedAward(value) } type="checkbox"/>
+              <label className={ styles.label } key={ value }>
+                <input onInput={ () => toggleAward(value) } defaultChecked={ isSelectedAward(value) } type="checkbox"/>
                 <span> { AwardsOptions[value] } </span>
               </label>
             )
